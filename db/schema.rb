@@ -10,14 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_18_042008) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_18_044222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "interview_sections", force: :cascade do |t|
+    t.bigint "topic_id", null: false
+    t.string "name"
+    t.integer "llm_fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_interview_sections_on_topic_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "interview_section_id", null: false
+    t.string "body"
+    t.integer "llm_fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interview_section_id"], name: "index_questions_on_interview_section_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.text "body"
+    t.integer "llm_fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "interview_sections", "topics"
+  add_foreign_key "questions", "interview_sections"
 end

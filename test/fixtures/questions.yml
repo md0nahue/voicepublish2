@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interview_section: one
+  body: MyString
+  llm_fee: 1
+
+two:
+  interview_section: two
+  body: MyString
+  llm_fee: 1
