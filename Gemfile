@@ -6,6 +6,8 @@ ruby "3.1.2"
 gem "rails", "~> 7.1.5", ">= 7.1.5.1"
 gem 'ruby_llm'
 gem 'httparty'
+gem 'pry'
+gem 'awesome_print'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

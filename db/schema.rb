@@ -16,8 +16,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_044222) do
 
   create_table "interview_sections", force: :cascade do |t|
     t.bigint "topic_id", null: false
-    t.string "name"
-    t.integer "llm_fee"
+    t.string "body"
+    t.decimal "llm_fee", precision: 15, scale: 7
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_interview_sections_on_topic_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_044222) do
   create_table "questions", force: :cascade do |t|
     t.bigint "interview_section_id", null: false
     t.string "body"
-    t.integer "llm_fee"
+    t.decimal "llm_fee", precision: 15, scale: 7
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["interview_section_id"], name: "index_questions_on_interview_section_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_044222) do
 
   create_table "topics", force: :cascade do |t|
     t.text "body"
-    t.integer "llm_fee"
+    t.decimal "llm_fee", precision: 15, scale: 7
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
