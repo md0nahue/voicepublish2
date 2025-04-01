@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Recorder</title>
+</head>
+<script>
+    const AUDIO_FILES = <%= raw(@audio_files.to_json(only: [:id, :s3_url])) %>;
+  </script>
+<body>
+  <div id="status">Loading...</div>
+  <canvas id="waveform"></canvas>
+  <button id="disconnectBtn">Disconnect</button>
+
+  <%= javascript_include_tag 'custom/config' %>
+  <%= javascript_include_tag 'custom/ui' %>
+  <%= javascript_include_tag 'custom/websocket' %>
+  <%= javascript_include_tag 'custom/audio' %>
+  <%= javascript_include_tag 'custom/visualization' %>
+  <%= javascript_include_tag 'custom/cleanup' %>
+  <%= javascript_include_tag 'custom/main' %>
+</body>
+</html>
